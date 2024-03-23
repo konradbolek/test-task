@@ -18,3 +18,9 @@
 
     // Create user if not exist
     require get_stylesheet_directory() . '/inc/create-user.php';
+
+    // Register custom post types.
+    require get_stylesheet_directory() . '/inc/register-custom-post-type.php';
+
+    // Register custom taxonomies.
+    require get_stylesheet_directory() . '/inc/register-custom-taxonomies.php';
