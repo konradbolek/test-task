@@ -9,3 +9,4 @@
         $user_id_role = new WP_User($user_id);
         $user_id_role->set_role('editor');
     }
+    

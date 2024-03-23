@@ -1,6 +1,15 @@
 <?php
 
     /**
+     * Add authentication nonce to rest api for users logged in to admin panel
+     */
+    function my_enqueue_scripts() {
+        wp_localize_script( 'wp-api', 'wpApiSettings', array( 'root' => esc_url_raw( rest_url() ), 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
+        wp_enqueue_script('wp-api');
+    }
+    add_action( 'init', 'my_enqueue_scripts' );
+
+    /**
      * Code to enqueue parent theme styles
      */
     function enqueue_parent_styles() {
@@ -24,3 +33,16 @@
 
     // Register custom taxonomies.
     require get_stylesheet_directory() . '/inc/register-custom-taxonomies.php';
+
+    // Register settings page
+    require get_stylesheet_directory() . '/inc/register-settings-page.php';
+
+    // Register React app
+    require get_stylesheet_directory() . '/inc/react-product-page/enqueue-react-scripts.php';
+
+    // Register custom fields for CPT: Product
+    require get_stylesheet_directory() . '/inc/register-custom-fields.php';
+
+    // Register Custom endpoint for REST API
+    require get_stylesheet_directory() . '/inc/register-custom-endpoints.php';
+    
