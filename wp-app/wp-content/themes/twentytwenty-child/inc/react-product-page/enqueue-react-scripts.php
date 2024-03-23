@@ -7,7 +7,7 @@
         if ( $screen_id_options == $screen_id_options ) {
             wp_enqueue_script('react-settings-page-menu-options',
                 get_stylesheet_directory_uri() . '/inc/react-product-page/app/build/index.js',
-                array('wp-element', 'wp-api-fetch'),
+                ['wp-element', 'wp-api-fetch'],
                 '1.00',
                 true);
         }
